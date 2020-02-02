@@ -9,12 +9,15 @@ import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
+/**
+ * prihradka zaznamu produktu
+ */
 @XmlRootElement(name = "product")
 public class ProductDto extends ResourceSupport implements Serializable {
 	
 	private long entity_id = 0;
 	private String name;
-	private int price;
+	private long price;
 	
 	public long getEntity_id() {
 		return entity_id;
@@ -32,11 +35,11 @@ public class ProductDto extends ResourceSupport implements Serializable {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public long getPrice() {
 		return price;
 	}
 	
-	public void setPrice(int price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 

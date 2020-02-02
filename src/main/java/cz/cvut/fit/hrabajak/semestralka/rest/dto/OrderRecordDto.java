@@ -11,6 +11,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * prihradka zaznamu objednavky
+ */
 @XmlRootElement(name = "orderRecord")
 public class OrderRecordDto extends ResourceSupport implements Serializable {
 

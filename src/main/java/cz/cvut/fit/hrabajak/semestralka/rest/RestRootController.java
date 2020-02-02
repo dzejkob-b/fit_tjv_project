@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * rest controller pro informativni rozcestnik
+ */
 @org.springframework.web.bind.annotation.RestController
 public class RestRootController extends RestBase {
 

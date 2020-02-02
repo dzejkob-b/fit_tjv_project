@@ -6,6 +6,9 @@ import org.springframework.hateoas.ResourceSupport;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
+/**
+ * prihradka zjednoduseneho zaznamu objednavky
+ */
 @XmlRootElement(name = "orderRecordSimple")
 public class OrderRecordSimpleDto extends ResourceSupport implements Serializable {
 

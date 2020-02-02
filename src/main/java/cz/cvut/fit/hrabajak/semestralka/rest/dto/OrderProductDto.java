@@ -11,6 +11,9 @@ import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
+/**
+ * prihradka zaznamu produktu
+ */
 @XmlRootElement(name = "orderProduct")
 public class OrderProductDto extends ResourceSupport implements Serializable {
 	

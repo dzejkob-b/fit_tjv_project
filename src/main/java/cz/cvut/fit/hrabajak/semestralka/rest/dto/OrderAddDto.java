@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * prihradka pro manipulaci s produkty v objednavce (add / remove)
+ */
 @XmlRootElement(name = "orderAdd")
 public class OrderAddDto extends ResourceSupport implements Serializable {
 

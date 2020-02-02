@@ -2,6 +2,9 @@ package cz.cvut.fit.hrabajak.semestralka;
 
 import org.springframework.boot.SpringApplication;
 
+/**
+ * vstupni bod serverove aplikace
+ */
 public class App {
 
     public static void main( String[] args ) {

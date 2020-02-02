@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
+/**
+ * vytvarec testovacich dat
+ */
 public class DataCreator {
 
 	@Autowired

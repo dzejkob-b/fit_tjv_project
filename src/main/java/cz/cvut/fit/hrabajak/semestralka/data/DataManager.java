@@ -11,10 +11,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
+/**
+ * tahle classa byl pokus, jak resit obecne praci s databazi - nakonec to "nejak" resi ty repositories
+ * jinym zpusobem se mi to zprovoznit nepodarilo
+ */
 @Service
 public class DataManager {
-	// tahle classa byl pokus, jak resit obecne praci s databazi - nakonec to "nejak" resi ty repositories
-	// jinym zpusobem se mi to zprovoznit nepodarilo
 
 	//@Autowired
 	@PersistenceContext

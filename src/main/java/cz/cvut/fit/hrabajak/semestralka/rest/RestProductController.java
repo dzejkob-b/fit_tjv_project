@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+/**
+ * rest controller pro praci s katalogem produktu
+ */
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping(value = "/product", produces = {MediaTypes.HAL_JSON_UTF8_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
 public class RestProductController extends RestBase {

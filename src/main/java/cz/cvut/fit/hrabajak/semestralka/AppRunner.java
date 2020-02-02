@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
+/**
+ * vychozi bod ktery spousti springboot jenz spusti AppLogic
+ */
 @EnableAutoConfiguration
 @ComponentScan(basePackageClasses = RestProductController.class )
 @ComponentScan(basePackageClasses = RestRootController.class )

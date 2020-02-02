@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+/**
+ * rest controller pro praci s objednavkou
+ */
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping(value = "/orderrecord", produces = {MediaTypes.HAL_JSON_UTF8_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
 public class RestOrderRecordController extends RestBase {

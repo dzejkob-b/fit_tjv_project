@@ -9,6 +9,9 @@ import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
+/**
+ * prihradka zaznamu produktu v objednavce
+ */
 @XmlRootElement(name = "orderRecordProducts")
 public class OrderRecordProductsDto extends OrderRecordDto {
 

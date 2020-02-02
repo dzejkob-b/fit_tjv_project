@@ -21,7 +21,7 @@ public class Product implements Serializable {
 	@Column(nullable = false, unique = true)
 	private String name;
 	@Column
-	private int price;
+	private long price;
 
 	// FetchType.LAZY - kolekci objednavek ve kterych je produkt obsazen je treba fetchnout dodatecne
 
@@ -44,11 +44,11 @@ public class Product implements Serializable {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public long getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 	
@@ -63,7 +63,7 @@ public class Product implements Serializable {
 	public String toString() {
 		String result = "";
 		
-		result += "id: " + Long.toString(this.id) + ", name: " + this.name + ", price: " + Integer.toString(this.price);
+		result += "id: " + Long.toString(this.id) + ", name: " + this.name + ", price: " + Long.toString(this.price);
 
 		if (Hibernate.isInitialized(this.orderProducts)) {
 			for (OrderProduct op : this.orderProducts) {

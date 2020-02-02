@@ -2,6 +2,9 @@ package cz.cvut.fit.hrabajak.semestralka.display;
 
 import cz.cvut.fit.hrabajak.semestralka.data.DataManager;
 
+/**
+ * tohle jenom provede vystup databazovych entit do konzole
+ */
 public class TableDisplay {
 
 	private DataManager dt;

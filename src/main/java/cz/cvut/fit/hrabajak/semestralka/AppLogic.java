@@ -6,6 +6,10 @@ import cz.cvut.fit.hrabajak.semestralka.display.TableDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * logika serverove aplikace
+ * (rest server spousti automaticky springboot)
+ */
 @Service
 public class AppLogic {
 

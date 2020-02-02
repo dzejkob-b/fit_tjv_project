@@ -1,5 +1,6 @@
 package cz.cvut.fit.hrabajak.semestralka.rest.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import cz.cvut.fit.hrabajak.semestralka.orm.Product;
 import cz.cvut.fit.hrabajak.semestralka.rest.RestProductController;
 import org.springframework.hateoas.ResourceSupport;
@@ -13,6 +14,7 @@ import java.io.Serializable;
  * prihradka zaznamu produktu
  */
 @XmlRootElement(name = "product")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductDto extends ResourceSupport implements Serializable {
 	
 	private long entity_id = 0;

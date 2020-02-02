@@ -1,5 +1,6 @@
 package cz.cvut.fit.hrabajak.semestralka.rest.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.hateoas.ResourceSupport;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -9,6 +10,7 @@ import java.io.Serializable;
  * prihradka s detailem upravy produktu v objednavce (viz. OrderAddDto)
  */
 @XmlRootElement(name = "orderAddProduct")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderAddProduct extends ResourceSupport implements Serializable {
 
 	private long product_id;

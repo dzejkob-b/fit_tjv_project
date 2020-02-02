@@ -19,6 +19,14 @@ public class ConsumeProduct {
 		return response.getBody();
 	}
 
+	public ProductDto[] GetProducts(int page) {
+		RestTemplate t = new RestTemplate();
+
+		ResponseEntity<ProductDto[]> response = t.getForEntity(ConsumeProduct.restPrefix + "/getall/" + Integer.toString(page), ProductDto[].class);
+
+		return response.getBody();
+	}
+
 	public ProductDto UpdateOrCreateProduct(ProductDto p) {
 		RestTemplate t = new RestTemplate();
 

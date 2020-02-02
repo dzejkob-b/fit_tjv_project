@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3241043a-d1a9-44fc-88c8-304f14a4704d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/EntryForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/EntryForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/AppLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/AppLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/AppRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/AppRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/TestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/data/DataCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/data/DataCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/data/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/data/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/display/TableDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/display/TableDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/orm/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/orm/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestOrderRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestOrderRecordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestRootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestRootController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/ClientApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/ClientApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/ClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/ClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderAddDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderAddDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderAddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderAddProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderProductDto.java" afterDir="false" />
@@ -27,17 +18,15 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordProductsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordProductsDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordSimpleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordSimpleDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/AppLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/AppLogic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/AppRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/AppRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/TestRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/TestRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/data/DataCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/data/DataCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/data/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/data/DataManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/display/TableDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/display/TableDisplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/RestBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/RestBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/RestOrderRecordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/RestOrderRecordController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/RestProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/RestProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/RestRootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/RestRootController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/ClientApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/ClientApp$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/ClientApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/ClientApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/ClientConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/ClientConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderAddDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderAddDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderAddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderAddProduct.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderProductDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderProductDto$1.class" afterDir="false" />
@@ -48,18 +37,10 @@
       <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordProductsDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordProductsDto$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordProductsDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordProductsDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordSimpleDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordSimpleDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-cz.cvut.fit.hrabajak.semestralka.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-cz.cvut.fit.hrabajak.semestralka.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-cz.cvut.fit.hrabajak.semestralka.OrderProductTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-cz.cvut.fit.hrabajak.semestralka.OrderProductTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-cz.cvut.fit.hrabajak.semestralka.OrderRecordTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-cz.cvut.fit.hrabajak.semestralka.OrderRecordTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-cz.cvut.fit.hrabajak.semestralka.ProductTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-cz.cvut.fit.hrabajak.semestralka.ProductTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/cz.cvut.fit.hrabajak.semestralka.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/cz.cvut.fit.hrabajak.semestralka.AppTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/cz.cvut.fit.hrabajak.semestralka.OrderProductTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/cz.cvut.fit.hrabajak.semestralka.OrderProductTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/cz.cvut.fit.hrabajak.semestralka.OrderRecordTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/cz.cvut.fit.hrabajak.semestralka.OrderRecordTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/cz.cvut.fit.hrabajak.semestralka.ProductTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/cz.cvut.fit.hrabajak.semestralka.ProductTest.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +274,7 @@
       <workItem from="1580389600920" duration="18916000" />
       <workItem from="1580578661523" duration="26704000" />
       <workItem from="1580651037725" duration="9697000" />
-      <workItem from="1580661721588" duration="4606000" />
+      <workItem from="1580661721588" duration="11007000" />
     </task>
     <servers />
   </component>
@@ -317,10 +298,10 @@
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
     <state x="2671" y="418" width="1576" height="770" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580663026414" />
-    <state x="3061" y="540" width="374" height="621" key="#com.intellij.ide.util.MemberChooser" timestamp="1580666111474">
+    <state x="3061" y="540" width="374" height="621" key="#com.intellij.ide.util.MemberChooser" timestamp="1580672452571">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
-    <state x="3061" y="540" width="374" height="621" key="#com.intellij.ide.util.MemberChooser/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580666111474" />
+    <state x="3061" y="540" width="374" height="621" key="#com.intellij.ide.util.MemberChooser/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580672452571" />
     <state x="2917" y="556" width="524" height="437" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1577553494409">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
@@ -369,22 +350,22 @@
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
     <state x="2961" y="553" width="424" height="479" key="FileChooserDialogImpl/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580399053391" />
-    <state width="1995" height="347" key="GridCell.Tab.0.bottom" timestamp="1580666411842">
+    <state width="2518" height="347" key="GridCell.Tab.0.bottom" timestamp="1580672740075">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
-    <state width="1995" height="347" key="GridCell.Tab.0.bottom/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580666411842" />
-    <state width="1995" height="347" key="GridCell.Tab.0.center" timestamp="1580666411842">
+    <state width="2518" height="347" key="GridCell.Tab.0.bottom/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580672740075" />
+    <state width="2518" height="347" key="GridCell.Tab.0.center" timestamp="1580672740075">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
-    <state width="1995" height="347" key="GridCell.Tab.0.center/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580666411842" />
-    <state width="1995" height="347" key="GridCell.Tab.0.left" timestamp="1580666411842">
+    <state width="2518" height="347" key="GridCell.Tab.0.center/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580672740075" />
+    <state width="2518" height="347" key="GridCell.Tab.0.left" timestamp="1580672740075">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
-    <state width="1995" height="347" key="GridCell.Tab.0.left/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580666411842" />
-    <state width="1995" height="347" key="GridCell.Tab.0.right" timestamp="1580666411842">
+    <state width="2518" height="347" key="GridCell.Tab.0.left/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580672740075" />
+    <state width="2518" height="347" key="GridCell.Tab.0.right" timestamp="1580672740075">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
-    <state width="1995" height="347" key="GridCell.Tab.0.right/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580666411842" />
+    <state width="2518" height="347" key="GridCell.Tab.0.right/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580672740075" />
     <state x="2863" y="543" width="664" height="559" key="GuiDesigner.FormSource.Dialog" timestamp="1580658497904">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>

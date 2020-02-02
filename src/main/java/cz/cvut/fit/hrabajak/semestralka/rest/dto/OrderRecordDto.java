@@ -1,5 +1,6 @@
 package cz.cvut.fit.hrabajak.semestralka.rest.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import cz.cvut.fit.hrabajak.semestralka.orm.OrderProduct;
 import cz.cvut.fit.hrabajak.semestralka.orm.OrderRecord;
 import cz.cvut.fit.hrabajak.semestralka.rest.RestOrderRecordController;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
  * prihradka zaznamu objednavky
  */
 @XmlRootElement(name = "orderRecord")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderRecordDto extends ResourceSupport implements Serializable {
 
 	private long entity_id;

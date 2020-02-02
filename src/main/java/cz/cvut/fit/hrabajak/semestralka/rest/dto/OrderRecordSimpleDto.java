@@ -1,5 +1,6 @@
 package cz.cvut.fit.hrabajak.semestralka.rest.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import cz.cvut.fit.hrabajak.semestralka.orm.OrderRecord;
 import org.springframework.hateoas.ResourceSupport;
 
@@ -10,6 +11,7 @@ import java.io.Serializable;
  * prihradka zjednoduseneho zaznamu objednavky
  */
 @XmlRootElement(name = "orderRecordSimple")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderRecordSimpleDto extends ResourceSupport implements Serializable {
 
 	private long entity_id;

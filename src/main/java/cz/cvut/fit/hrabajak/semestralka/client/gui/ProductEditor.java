@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-public class ProductEditor {
+public class ProductEditor extends FormBasic {
 
 	public JFrame frame;
 	public JPanel panel;
@@ -20,86 +19,141 @@ public class ProductEditor {
 	public JButton bt_update;
 	public JButton bt_clean;
 	public JButton bt_delete;
+	public JTable table;
+	public JButton bt_prev;
+	public JButton bt_next;
+
+	private int cPage = 0;
 
 	@Autowired
 	private ConsumeProduct cp;
+
+	public ProductEditor() {
+	}
 
 	public void initialize() {
 
 		this.frame = new JFrame();
 		this.frame.setTitle("Product editor");
-		this.frame.setSize(600, 200);
+		this.frame.setSize(600, 400);
 		this.frame.getContentPane().add(this.panel);
 		this.frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.frame.setResizable(false);
-		this.frame.setVisible(true);
+
+		this.table.setRowSelectionAllowed(true);
+		this.table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		this.UpdateTable(0);
+
 		this.frame.toFront();
+		this.FrameToParent(this.frame);
+		this.frame.setVisible(true);
 
 		this.bt_load.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent actionEvent) {
-
-				if (entity_id.getText().trim().isEmpty()) {
-					UpdateFields(null);
-
-				} else {
-					try {
-						UpdateFields(cp.GetProductById(Long.parseLong(entity_id.getText())));
-
-					} catch (Exception ex) {
-						JOptionPane.showMessageDialog(null, "Cannot get product: " + ex.getMessage());
-					}
-				}
-
+				ActionLoad();
 			}
 		});
 
 		this.bt_update.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent actionEvent) {
-				try {
-
-					ProductDto p = new ProductDto();
-
-					if (!entity_id.getText().trim().isEmpty()) {
-						p.setEntity_id(Long.parseLong(entity_id.getText()));
-					}
-
-					p.setName(name.getText());
-					p.setPrice(Long.parseLong(price.getText()));
-
-					UpdateFields(cp.UpdateOrCreateProduct(p));
-
-				} catch (Exception ex) {
-					JOptionPane.showMessageDialog(null, "Cannot create or update product: " + ex.getMessage());
-				}
+				ActionUpdate();
 			}
 		});
 
 		this.bt_clean.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent actionEvent) {
-
 				UpdateFields(null);
-
 			}
 		});
 
 		this.bt_delete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent actionEvent) {
+				ActionDelete();
+			}
+		});
 
-				try {
-					cp.DeleteProductById(Long.parseLong(entity_id.getText()));
-					UpdateFields(null);
+		this.bt_prev.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				UpdateTable(-1);
+			}
+		});
 
-				} catch (Exception ex) {
-					JOptionPane.showMessageDialog(null, "Cannot delete product: " + ex.getMessage());
+		this.bt_next.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				UpdateTable(1);
+			}
+		});
+
+		this.table.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				super.mouseClicked(e);
+
+				if (e.getClickCount() == 2 && table.getSelectedRowCount() > 0) {
+
+					entity_id.setText((String) table.getValueAt(table.getSelectedRow(), 0));
+					ActionLoad();
+
 				}
 
 			}
 		});
 
+	}
+
+	private void ActionLoad() {
+		if (entity_id.getText().trim().isEmpty()) {
+			UpdateFields(null);
+
+		} else {
+			try {
+				UpdateFields(cp.GetProductById(Long.parseLong(entity_id.getText())));
+
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, "Cannot get product: " + ex.getMessage());
+			}
+		}
+	}
+
+	private void ActionUpdate() {
+		try {
+
+			ProductDto p = new ProductDto();
+
+			if (!entity_id.getText().trim().isEmpty()) {
+				p.setEntity_id(Long.parseLong(entity_id.getText()));
+			}
+
+			p.setName(name.getText());
+			p.setPrice(Long.parseLong(price.getText()));
+
+			UpdateFields(cp.UpdateOrCreateProduct(p));
+			UpdateTable(0);
+
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, "Cannot create or update product: " + ex.getMessage());
+		}
+	}
+
+	private void ActionDelete() {
+		try {
+			cp.DeleteProductById(Long.parseLong(entity_id.getText()));
+
+			UpdateFields(null);
+
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, "Cannot delete product: " + ex.getMessage());
+		}
+
+		UpdateTable(0);
 	}
 
 	private void UpdateFields(ProductDto p) {
@@ -113,6 +167,36 @@ public class ProductEditor {
 			name.setText(p.getName());
 			price.setText(Long.toString(p.getPrice()));
 		}
+	}
+
+	private void UpdateTable(int step) {
+
+		int nPage = this.cPage + step;
+
+		if (nPage < 0) {
+			nPage = 0;
+		}
+
+		ProductDto[] ls = null;
+
+		try {
+			ls = this.cp.GetProducts(nPage);
+			this.cPage = nPage;
+			this.table.setModel(new ProductEditorTable(ls));
+
+		} catch (Exception ex) {
+			ls = new ProductDto[0];
+
+			if (nPage > 0 && nPage == this.cPage) {
+				// not found - prazdny seznam - krok na predchozi stranku
+
+				UpdateTable(-1);
+
+			} else if (this.cPage == 0) {
+				this.table.setModel(new ProductEditorTable(ls));
+			}
+		}
+
 	}
 
 	{
@@ -136,75 +220,136 @@ public class ProductEditor {
 		label1.setText("Name:");
 		GridBagConstraints gbc;
 		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
+		gbc.gridx = 1;
+		gbc.gridy = 2;
 		gbc.anchor = GridBagConstraints.WEST;
 		panel.add(label1, gbc);
 		name = new JTextField();
 		name.setColumns(20);
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 1;
+		gbc.gridx = 2;
+		gbc.gridy = 2;
+		gbc.weightx = 10.0;
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		panel.add(name, gbc);
 		final JLabel label2 = new JLabel();
 		label2.setText("Price:");
 		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
+		gbc.gridx = 1;
+		gbc.gridy = 3;
 		gbc.anchor = GridBagConstraints.WEST;
 		panel.add(label2, gbc);
 		final JLabel label3 = new JLabel();
 		label3.setText("Entity id: ");
 		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
+		gbc.gridx = 1;
+		gbc.gridy = 1;
 		gbc.anchor = GridBagConstraints.WEST;
 		panel.add(label3, gbc);
 		entity_id = new JTextField();
 		entity_id.setColumns(10);
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 0;
+		gbc.gridx = 2;
+		gbc.gridy = 1;
+		gbc.weightx = 10.0;
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		panel.add(entity_id, gbc);
 		price = new JTextField();
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 2;
+		gbc.gridx = 2;
+		gbc.gridy = 3;
+		gbc.weightx = 10.0;
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		panel.add(price, gbc);
-		bt_load = new JButton();
-		bt_load.setText("Load");
+		final JPanel spacer1 = new JPanel();
 		gbc = new GridBagConstraints();
 		gbc.gridx = 2;
+		gbc.gridy = 4;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		panel.add(spacer1, gbc);
+		final JScrollPane scrollPane1 = new JScrollPane();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 5;
+		gbc.gridwidth = 4;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.fill = GridBagConstraints.BOTH;
+		panel.add(scrollPane1, gbc);
+		table = new JTable();
+		table.setAutoCreateRowSorter(false);
+		scrollPane1.setViewportView(table);
+		final JPanel spacer2 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 5;
+		gbc.gridy = 1;
+		gbc.gridheight = 5;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		panel.add(spacer2, gbc);
+		final JPanel spacer3 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.gridheight = 5;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		panel.add(spacer3, gbc);
+		final JPanel spacer4 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 7;
+		gbc.gridwidth = 6;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		panel.add(spacer4, gbc);
+		final JPanel spacer5 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
 		gbc.gridy = 0;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		panel.add(bt_load, gbc);
-		bt_update = new JButton();
-		bt_update.setText("Create, update");
+		gbc.gridwidth = 6;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		panel.add(spacer5, gbc);
+		final JPanel panel1 = new JPanel();
+		panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 2;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		panel.add(bt_update, gbc);
+		gbc.gridx = 4;
+		gbc.gridy = 6;
+		gbc.fill = GridBagConstraints.BOTH;
+		panel.add(panel1, gbc);
+		bt_prev = new JButton();
+		bt_prev.setText("<= prev");
+		panel1.add(bt_prev);
+		bt_next = new JButton();
+		bt_next.setText("next =>");
+		panel1.add(bt_next);
+		final JPanel panel2 = new JPanel();
+		panel2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		gbc = new GridBagConstraints();
+		gbc.gridx = 4;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.BOTH;
+		panel.add(panel2, gbc);
+		bt_load = new JButton();
+		bt_load.setHorizontalAlignment(0);
+		bt_load.setText("Load");
+		panel2.add(bt_load);
 		bt_clean = new JButton();
 		bt_clean.setText("Clean form");
+		panel2.add(bt_clean);
+		final JPanel panel3 = new JPanel();
+		panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		gbc = new GridBagConstraints();
-		gbc.gridx = 3;
-		gbc.gridy = 0;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		panel.add(bt_clean, gbc);
+		gbc.gridx = 4;
+		gbc.gridy = 3;
+		gbc.fill = GridBagConstraints.BOTH;
+		panel.add(panel3, gbc);
+		bt_update = new JButton();
+		bt_update.setText("Create, update");
+		panel3.add(bt_update);
 		bt_delete = new JButton();
 		bt_delete.setText("Delete");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 3;
-		gbc.gridy = 2;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		panel.add(bt_delete, gbc);
+		panel3.add(bt_delete);
 	}
 
 	/**

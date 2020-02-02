@@ -1,10 +1,13 @@
+/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditorTable.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/App.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestRootController.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestBase.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderAddDto.java
+/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/FormBasic.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/orm/OrderProduct.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/display/TableDisplay.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/AppTestConfig.java
+/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/EntryForm.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestOrderRecordController.java

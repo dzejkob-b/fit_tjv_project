@@ -9,6 +9,7 @@ import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * prihradka zaznamu produktu v objednavce
@@ -17,13 +18,26 @@ import java.util.ArrayList;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderRecordProductsDto extends OrderRecordDto {
 
-	private ArrayList<OrderProductDto> products;
+	private List<OrderProductDto> products;
 
-	public ArrayList<OrderProductDto> getProducts() {
+	public List<OrderProductDto> getProducts() {
 		return products;
 	}
 
-	public void setProducts(ArrayList<OrderProductDto> products) {
+	public OrderProductDto[] getProductsArray() {
+		// nevim proc nejde .toArray() s castem na OrderProductDto[]
+
+		OrderProductDto[] result = new OrderProductDto[this.products.size()];
+		int idx = 0;
+
+		for (OrderProductDto p : this.products) {
+			result[idx++] = p;
+		}
+
+		return result;
+	}
+
+	public void setProducts(List<OrderProductDto> products) {
 		this.products = products;
 	}
 

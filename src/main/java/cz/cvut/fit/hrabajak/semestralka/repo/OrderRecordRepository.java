@@ -17,4 +17,7 @@ public interface OrderRecordRepository extends JpaRepository<OrderRecord, Long> 
 	@Transactional
 	List<OrderRecord> findAllByStatus(OrderRecord.Status status);
 
+	@Transactional
+	OrderRecord findByCode(String code);
+
 }

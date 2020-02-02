@@ -12,6 +12,8 @@ public class RestBase {
 		
 		JSONObject json = new JSONObject();
 
+		System.out.println("REST ERROR: " + message);
+
 		try {
 			json.put("error", message);
 

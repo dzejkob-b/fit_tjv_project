@@ -33,7 +33,8 @@ public class OrderRecordFactory {
 
 	public OrderRecord getOrderByCode(String code) {
 		try {
-			return (OrderRecord) this.em.createQuery("SELECT o FROM OrderRecord o WHERE o.code = :code").setParameter("code", code).getSingleResult();
+			return this.rep.findByCode(code);
+			// !! return (OrderRecord) this.em.createQuery("SELECT o FROM OrderRecord o WHERE o.code = :code").setParameter("code", code).getSingleResult();
 
 		} catch (NoResultException ex) {
 			return null;

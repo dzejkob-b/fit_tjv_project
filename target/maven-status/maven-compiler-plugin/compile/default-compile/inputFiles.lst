@@ -14,6 +14,7 @@
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestOrderRecordController.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/orm/OrderRecord.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderProductDto.java
+/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/OrderProductTable.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/data/DataManager.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/TestRunner.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestProductController.java

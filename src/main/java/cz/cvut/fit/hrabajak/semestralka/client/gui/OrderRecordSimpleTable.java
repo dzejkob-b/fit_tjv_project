@@ -13,6 +13,11 @@ public class OrderRecordSimpleTable extends AbstractTableModel {
 	}
 
 	@Override
+	public boolean isCellEditable(int row, int column){
+		return false;
+	}
+
+	@Override
 	public int getRowCount() {
 		return this.ls.length;
 	}

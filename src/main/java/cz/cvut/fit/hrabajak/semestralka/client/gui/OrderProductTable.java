@@ -1,14 +1,14 @@
 package cz.cvut.fit.hrabajak.semestralka.client.gui;
 
-import cz.cvut.fit.hrabajak.semestralka.rest.dto.ProductDto;
+import cz.cvut.fit.hrabajak.semestralka.rest.dto.OrderProductDto;
 
 import javax.swing.table.AbstractTableModel;
 
-public class ProductEditorTable extends AbstractTableModel {
+public class OrderProductTable extends AbstractTableModel {
 
-	private ProductDto[] ls;
+	private OrderProductDto[] ls;
 
-	public ProductEditorTable(ProductDto[] ls) {
+	public OrderProductTable(OrderProductDto[] ls) {
 		this.ls = ls;
 	}
 
@@ -24,20 +24,26 @@ public class ProductEditorTable extends AbstractTableModel {
 
 	@Override
 	public int getColumnCount() {
-		return 3;
+		return 5;
 	}
 
 	@Override
 	public String getColumnName(int column) {
 		switch (column) {
 			case 0 :
-				return "Entity id";
+				return "Product entity id";
 
 			case 1 :
 				return "Name";
 
 			case 2 :
 				return "Price";
+
+			case 3 :
+				return "Quantity";
+
+			case 4 :
+				return "Total price";
 		}
 
 		return "";
@@ -52,15 +58,22 @@ public class ProductEditorTable extends AbstractTableModel {
 	public Object getValueAt(int row, int column) {
 		switch (column) {
 			case 0 :
-				return Long.toString(this.ls[row].getEntity_id());
+				return Long.toString(this.ls[row].getProduct_entity_id());
 
 			case 1:
 				return this.ls[row].getName();
 
 			case 2 :
 				return Long.toString(this.ls[row].getPrice());
+
+			case 3 :
+				return Long.toString(this.ls[row].getQuantity());
+
+			case 4 :
+				return Long.toString(this.ls[row].getTotalPrice());
 		}
 
 		return "";
 	}
+
 }

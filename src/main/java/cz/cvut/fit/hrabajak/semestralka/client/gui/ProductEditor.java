@@ -1,5 +1,6 @@
 package cz.cvut.fit.hrabajak.semestralka.client.gui;
 
+import cz.cvut.fit.hrabajak.semestralka.client.consume.ConsumeOrderRecord;
 import cz.cvut.fit.hrabajak.semestralka.client.consume.ConsumeProduct;
 import cz.cvut.fit.hrabajak.semestralka.rest.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,16 @@ public class ProductEditor extends FormBasic {
 	public JTable table;
 	public JButton bt_prev;
 	public JButton bt_next;
+	public JTextField quantity;
+	public JButton bt_order;
 
 	private int cPage = 0;
+	private ProductDto cProduct = null;
 
 	@Autowired
 	private ConsumeProduct cp;
+	@Autowired
+	private OrderEditor oe;
 
 	public ProductEditor() {
 	}
@@ -42,6 +48,7 @@ public class ProductEditor extends FormBasic {
 
 		this.table.setRowSelectionAllowed(true);
 		this.table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.table.getTableHeader().setReorderingAllowed(false);
 
 		this.UpdateTable(0);
 
@@ -74,6 +81,13 @@ public class ProductEditor extends FormBasic {
 			@Override
 			public void actionPerformed(ActionEvent actionEvent) {
 				ActionDelete();
+			}
+		});
+
+		this.bt_order.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				ActionProductToOrder();
 			}
 		});
 
@@ -115,10 +129,11 @@ public class ProductEditor extends FormBasic {
 
 		} else {
 			try {
-				this.UpdateFields(this.cp.GetProductById(Long.parseLong(this.entity_id.getText())));
+				this.UpdateFields(this.cProduct = this.cp.GetProductById(Long.parseLong(this.entity_id.getText())));
 
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(null, "Cannot get product: " + ex.getMessage());
+				this.cProduct = null;
 			}
 		}
 	}
@@ -135,11 +150,12 @@ public class ProductEditor extends FormBasic {
 			p.setName(this.name.getText());
 			p.setPrice(Long.parseLong(this.price.getText()));
 
-			this.UpdateFields(cp.UpdateOrCreateProduct(p));
+			this.UpdateFields(this.cProduct = cp.UpdateOrCreateProduct(p));
 			this.UpdateTable(0);
 
 		} catch (Exception ex) {
 			JOptionPane.showMessageDialog(null, "Cannot create or update product: " + ex.getMessage());
+			this.cProduct = null;
 		}
 	}
 
@@ -156,11 +172,30 @@ public class ProductEditor extends FormBasic {
 		this.UpdateTable(0);
 	}
 
+	private void ActionProductToOrder() {
+		if (this.cProduct == null) {
+			JOptionPane.showMessageDialog(null, "Product is not selected!");
+
+		} else {
+			long quantity = 0;
+
+			try {
+				quantity = Long.parseLong(this.quantity.getText());
+			} catch (Exception ex) {
+				// ...
+			}
+
+			this.oe.ActionAddProduct(this.cProduct.getEntity_id(), quantity);
+		}
+	}
+
 	private void UpdateFields(ProductDto p) {
 		if (p == null) {
 			this.entity_id.setText("");
 			this.name.setText("");
 			this.price.setText("");
+
+			this.cProduct = null;
 
 		} else {
 			this.entity_id.setText(Long.toString(p.getEntity_id()));
@@ -337,11 +372,17 @@ public class ProductEditor extends FormBasic {
 		bt_clean = new JButton();
 		bt_clean.setText("Clean form");
 		panel2.add(bt_clean);
+		final JPanel spacer6 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 3;
+		gbc.gridy = 2;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		panel.add(spacer6, gbc);
 		final JPanel panel3 = new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 4;
-		gbc.gridy = 3;
+		gbc.gridy = 2;
 		gbc.fill = GridBagConstraints.BOTH;
 		panel.add(panel3, gbc);
 		bt_update = new JButton();
@@ -350,6 +391,36 @@ public class ProductEditor extends FormBasic {
 		bt_delete = new JButton();
 		bt_delete.setText("Delete");
 		panel3.add(bt_delete);
+		final JPanel panel4 = new JPanel();
+		panel4.setLayout(new GridBagLayout());
+		gbc = new GridBagConstraints();
+		gbc.gridx = 4;
+		gbc.gridy = 3;
+		gbc.weightx = 1.0;
+		gbc.fill = GridBagConstraints.BOTH;
+		panel.add(panel4, gbc);
+		final JLabel label4 = new JLabel();
+		label4.setText("Quantity: ");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.WEST;
+		panel4.add(label4, gbc);
+		quantity = new JTextField();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		gbc.weightx = 1.0;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		panel4.add(quantity, gbc);
+		bt_order = new JButton();
+		bt_order.setText("To order");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 2;
+		gbc.gridy = 0;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		panel4.add(bt_order, gbc);
 	}
 
 	/**

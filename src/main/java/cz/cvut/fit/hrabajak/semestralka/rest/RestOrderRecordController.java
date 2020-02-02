@@ -41,6 +41,7 @@ public class RestOrderRecordController extends RestBase {
 		msg.put("'/remove/{code}/products' - remove list of products (ids) of specified quantity at opened order (DELETE)");
 		msg.put("'/get/[opened|processing|finished|reversal]' - get list of opened orders specified by state (GET)");
 		msg.put("'/set/{code}/[opened|processing|finished|reversal]' - change order state (PUT)");
+		msg.put("'/update/{code}' - update or create order (POST)");
 		msg.put("'/delete/{code}' - delete order by code at reversal state (DELETE)");
 		
 		return ResponseEntity.
@@ -96,7 +97,7 @@ public class RestOrderRecordController extends RestBase {
 
 				if (p == null) {
 					return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with entity id `" + Long.toString(ap.getProduct_id()) + "` not found!"));
-
+					
 				} else {
 					o.addProduct(p, ap.getQuantity());
 				}
@@ -233,6 +234,44 @@ public class RestOrderRecordController extends RestBase {
 						created(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(RestOrderRecordController.class).get(o.getCode())).toUri()).
 						body(OrderRecordDto.toDto.toResource(o));
 			}
+
+		} catch (Exception ex) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage()));
+		}
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public HttpEntity<?> update(@RequestBody OrderRecordDto dt) {
+		try {
+			OrderRecord o = null;
+
+			if (!dt.getCode().trim().isEmpty()) {
+				o = this.orderRecordFactory.getOrderByCode(dt.getCode());
+
+				if (o != null && o.getStatus() != OrderRecord.Status.OPENED) {
+					return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Cannot update order with status `" + o.getStatus().toString() + "`!"));
+				}
+			}
+
+			if (o == null) {
+				o = new OrderRecord();
+				o.setCode("");
+			}
+
+			if (o.getCode().trim().isEmpty()) {
+				o.setCode(this.orderRecordFactory.generateUniqueCode());
+			}
+
+			o.setCustFirstName(dt.getCustFirstName());
+			o.setCustSurName(dt.getCustSurName());
+			o.setDeliveryAddress(dt.getDeliveryAddress());
+			o.setDeliveryCity(dt.getDeliveryCity());
+
+			this.orderRecordFactory.saveOrder(o);
+
+			return ResponseEntity.
+					created(ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(RestOrderRecordController.class).get(o.getCode())).toUri()).
+					body(OrderRecordDto.toDto.toResource(o));
 
 		} catch (Exception ex) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage()));

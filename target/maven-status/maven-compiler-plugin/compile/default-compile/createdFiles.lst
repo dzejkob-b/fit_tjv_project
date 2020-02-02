@@ -6,6 +6,7 @@ cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$2.class
 cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.class
 cz/cvut/fit/hrabajak/semestralka/data/DataManager.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$8.class
+cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$11.class
 cz/cvut/fit/hrabajak/semestralka/rest/RestBase.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.class
 cz/cvut/fit/hrabajak/semestralka/rest/RestOrderRecordController.class
@@ -41,6 +42,7 @@ cz/cvut/fit/hrabajak/semestralka/client/gui/OrderRecordSimpleTable.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$7.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$6.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$3.class
+cz/cvut/fit/hrabajak/semestralka/client/gui/OrderProductTable.class
 cz/cvut/fit/hrabajak/semestralka/rest/RestRootController.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$9.class
 cz/cvut/fit/hrabajak/semestralka/data/ProductFactory.class
@@ -52,6 +54,7 @@ cz/cvut/fit/hrabajak/semestralka/repo/ProductRepository.class
 cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeOrderRecord.class
 cz/cvut/fit/hrabajak/semestralka/rest/RestProductController.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditorTable.class
+cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$8.class
 cz/cvut/fit/hrabajak/semestralka/AppTestConfig.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/FormBasic.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$4.class

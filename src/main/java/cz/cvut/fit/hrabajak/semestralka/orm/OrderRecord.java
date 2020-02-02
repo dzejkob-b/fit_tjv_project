@@ -9,7 +9,8 @@ import java.util.List;
 @Table
 @NamedQueries({
 	@NamedQuery(name = "OrderRecord.findAll", query = "SELECT r FROM OrderRecord r"),
-	@NamedQuery(name = "OrderRecord.findAllByStatus", query = "SELECT r FROM OrderRecord r WHERE r.status = ?1")
+	@NamedQuery(name = "OrderRecord.findAllByStatus", query = "SELECT r FROM OrderRecord r WHERE r.status = ?1"),
+	@NamedQuery(name = "OrderRecord.findByCode", query = "SELECT r FROM OrderRecord r WHERE r.code =?1")
 })
 public class OrderRecord implements Serializable {
 
@@ -39,8 +40,9 @@ public class OrderRecord implements Serializable {
 	
 	// FetchType.EAGER - v pripade fetche zaznamu je potreba taktez kolekce produktu v objednavce
 	// CascadeType.PERSIST - persist taktez persistne relace v kolekcich
+	// orphanRemoval - zaznam odstraneny z kolekce bude pri persist taktez smazan z databaze
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "orderRecord", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "orderRecord", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderProduct> orderProducts;
 
 	public OrderRecord() {
@@ -140,13 +142,27 @@ public class OrderRecord implements Serializable {
 	}
 
 	public void addProduct(Product p, long quantity) {
-		OrderProduct op = new OrderProduct();
+		OrderProduct toAdd = null;
 
-		op.setOrderRecord(this);
-		op.setProduct(p);
-		op.setQuantity(quantity);
+		for (OrderProduct op : this.orderProducts) {
+			if (op.getProduct().getId() == p.getId()) {
+				toAdd = op;
+				break;
+			}
+		}
 
-		this.orderProducts.add(op);
+		if (toAdd == null) {
+			toAdd = new OrderProduct();
+
+			toAdd.setOrderRecord(this);
+			toAdd.setProduct(p);
+			toAdd.setQuantity(quantity);
+
+			this.orderProducts.add(toAdd);
+			
+		} else {
+			toAdd.setQuantity(toAdd.getQuantity() + quantity);
+		}
 	}
 
 	public boolean removeProduct(Product p, long quantity) {

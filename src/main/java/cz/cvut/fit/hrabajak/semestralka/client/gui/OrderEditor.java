@@ -2,8 +2,7 @@ package cz.cvut.fit.hrabajak.semestralka.client.gui;
 
 import cz.cvut.fit.hrabajak.semestralka.client.consume.ConsumeOrderRecord;
 import cz.cvut.fit.hrabajak.semestralka.orm.OrderRecord;
-import cz.cvut.fit.hrabajak.semestralka.rest.dto.OrderRecordDto;
-import cz.cvut.fit.hrabajak.semestralka.rest.dto.OrderRecordSimpleDto;
+import cz.cvut.fit.hrabajak.semestralka.rest.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.swing.*;
@@ -12,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class OrderEditor extends FormBasic {
 
@@ -34,13 +34,19 @@ public class OrderEditor extends FormBasic {
 	public JButton bt_update;
 	public JButton bt_clean;
 	public JButton bt_delete;
+	public JButton bt_deleteProduct;
 
 	private String cStatus;
+	private OrderRecordDto cOrderRecord;
 
 	@Autowired
 	private ConsumeOrderRecord co;
 
 	public OrderEditor() {
+	}
+
+	public OrderRecordDto getCurrentOrderRecord() {
+		return this.cOrderRecord;
 	}
 
 	public void Initialize() {
@@ -53,6 +59,11 @@ public class OrderEditor extends FormBasic {
 
 		this.table.setRowSelectionAllowed(true);
 		this.table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.table.getTableHeader().setReorderingAllowed(false);
+
+		this.productTable.setRowSelectionAllowed(true);
+		this.productTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		this.productTable.getTableHeader().setReorderingAllowed(false);
 
 		this.status.addItem(null);
 		this.status.addItem(OrderRecord.Status.OPENED);
@@ -126,6 +137,13 @@ public class OrderEditor extends FormBasic {
 			}
 		});
 
+		this.bt_deleteProduct.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				ActionDeleteProducts();
+			}
+		});
+
 		this.table.addMouseListener(new MouseAdapter() {
 
 			@Override
@@ -150,16 +168,52 @@ public class OrderEditor extends FormBasic {
 
 		} else {
 			try {
-				this.UpdateFields(co.GetOrderRecordByCode(this.code.getText()));
+				this.UpdateFields(this.cOrderRecord = this.co.GetOrderRecordByCode(this.code.getText()));
+				this.ActionProductsLoad(null);
 
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(null, "Cannot get order record: " + ex.getMessage());
+				this.cOrderRecord = null;
 			}
 
 		}
 	}
 
+	private void ActionProductsLoad(OrderRecordProductsDto op) {
+		if (op != null) {
+			this.productTable.setModel(new OrderProductTable(op.getProductsArray()));
+
+		} else {
+			try {
+				op = this.co.GetOrderRecordProductsByCode(this.code.getText());
+
+				this.productTable.setModel(new OrderProductTable(op.getProductsArray()));
+
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, "Cannot load order record products: " + ex.getMessage());
+			}
+		}
+	}
+
 	private void ActionUpdate() {
+		try {
+			OrderRecordDto o = new OrderRecordDto();
+
+			o.setCode(this.code.getText());
+			o.setCustFirstName(this.custFirstName.getText());
+			o.setCustSurName(this.custSurName.getText());
+			o.setDeliveryAddress(this.deliveryAddress.getText());
+			o.setDeliveryCity(this.deliveryCity.getText());
+
+			this.UpdateFields(this.cOrderRecord = this.co.UpdateOrCreateOrderRecord(o));
+
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, "Cannot create or update order record: " + ex.getMessage());
+			this.cOrderRecord = null;
+		}
+
+		this.ActionProductsLoad(null);
+		this.UpdateTable(null);
 	}
 
 	private void ActionUpdateStatus() {
@@ -171,7 +225,7 @@ public class OrderEditor extends FormBasic {
 
 		} else {
 			try {
-				co.SetOrderRecordStatus(this.code.getText(), (OrderRecord.Status)this.status.getSelectedItem());
+				this.co.SetOrderRecordStatus(this.code.getText(), (OrderRecord.Status) this.status.getSelectedItem());
 
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(null, "Cannot update order record status: " + ex.getMessage());
@@ -183,7 +237,7 @@ public class OrderEditor extends FormBasic {
 
 	private void ActionDelete() {
 		try {
-			co.DeleteOrderRecordByCode(this.code.getText());
+			this.co.DeleteOrderRecordByCode(this.code.getText());
 
 			this.UpdateFields(null);
 
@@ -194,6 +248,63 @@ public class OrderEditor extends FormBasic {
 		this.UpdateTable(null);
 	}
 
+	private void ActionDeleteProducts() {
+		if (this.cOrderRecord != null && this.productTable.getSelectedRowCount() > 0) {
+			try {
+				ArrayList<OrderAddProduct> ls = new ArrayList<OrderAddProduct>();
+
+				for (int rowIdx : this.productTable.getSelectedRows()) {
+					OrderAddProduct ap = new OrderAddProduct();
+
+					ap.setProduct_id(Long.parseLong((String) this.productTable.getValueAt(rowIdx, 0)));
+					ap.setQuantity(Long.parseLong((String) this.productTable.getValueAt(rowIdx, 3)));
+
+					ls.add(ap);
+				}
+
+				OrderAddDto d = new OrderAddDto();
+
+				d.setAddProducts(ls);
+
+				this.ActionProductsLoad(this.co.RemoveProducts(this.cOrderRecord.getCode(), d));
+
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, "Cannot delete products from order record: " + ex.getMessage());
+			}
+
+			this.UpdateTable(null);
+		}
+	}
+
+	public void ActionAddProduct(long productEntity_id, long quantity) {
+		if (this.cOrderRecord != null) {
+			try {
+				ArrayList<OrderAddProduct> ls = new ArrayList<OrderAddProduct>();
+
+				OrderAddProduct ap = new OrderAddProduct();
+
+				ap.setProduct_id(productEntity_id);
+				ap.setQuantity(quantity);
+
+				ls.add(ap);
+
+				OrderAddDto d = new OrderAddDto();
+
+				d.setAddProducts(ls);
+
+				this.ActionProductsLoad(this.co.AddProducts(this.cOrderRecord.getCode(), d));
+
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, "Cannot add products to order record: " + ex.getMessage());
+			}
+
+			this.UpdateTable(null);
+
+		} else {
+			JOptionPane.showMessageDialog(null, "Order record is not selected!");
+		}
+	}
+
 	private void UpdateFields(OrderRecordDto o) {
 		if (o == null) {
 			this.code.setText("");
@@ -202,6 +313,9 @@ public class OrderEditor extends FormBasic {
 			this.custSurName.setText("");
 			this.deliveryAddress.setText("");
 			this.deliveryCity.setText("");
+
+			this.productTable.setModel(new OrderProductTable(new OrderProductDto[0]));
+			this.cOrderRecord = null;
 
 		} else {
 			this.code.setText(o.getCode());
@@ -279,7 +393,7 @@ public class OrderEditor extends FormBasic {
 		final JPanel spacer3 = new JPanel();
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
-		gbc.gridy = 16;
+		gbc.gridy = 18;
 		gbc.gridwidth = 13;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		panel.add(spacer3, gbc);
@@ -511,6 +625,27 @@ public class OrderEditor extends FormBasic {
 		gbc.gridwidth = 11;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		panel.add(spacer8, gbc);
+		final JPanel panel2 = new JPanel();
+		panel2.setLayout(new GridBagLayout());
+		gbc = new GridBagConstraints();
+		gbc.gridx = 11;
+		gbc.gridy = 17;
+		gbc.fill = GridBagConstraints.BOTH;
+		panel.add(panel2, gbc);
+		bt_deleteProduct = new JButton();
+		bt_deleteProduct.setText("Delete products");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		panel2.add(bt_deleteProduct, gbc);
+		final JPanel spacer9 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 16;
+		gbc.gridwidth = 11;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		panel.add(spacer9, gbc);
 	}
 
 	/**

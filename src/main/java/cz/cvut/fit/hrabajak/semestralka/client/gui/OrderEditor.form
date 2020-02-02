@@ -35,7 +35,7 @@
       </hspacer>
       <vspacer id="c7468">
         <constraints>
-          <grid row="16" column="0" row-span="1" col-span="13" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="18" column="0" row-span="1" col-span="13" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
       </vspacer>
@@ -295,6 +295,31 @@
       <vspacer id="bd8f3">
         <constraints>
           <grid row="12" column="1" row-span="1" col-span="11" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+      </vspacer>
+      <grid id="ae693" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="17" column="11" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="781cc" class="javax.swing.JButton" binding="bt_deleteProduct">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Delete products"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <vspacer id="1ed30">
+        <constraints>
+          <grid row="16" column="1" row-span="1" col-span="11" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
       </vspacer>

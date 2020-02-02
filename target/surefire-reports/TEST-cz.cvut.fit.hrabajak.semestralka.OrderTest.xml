@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cz.cvut.fit.hrabajak.semestralka.OrderTest" time="2.559" tests="1" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/target/test-classes:/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/target/classes:/home/dzejkob/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/dzejkob/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/dzejkob/.m2/repository/org/springframework/spring-core/5.1.9.RELEASE/spring-core-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/springframework/spring-jcl/5.1.9.RELEASE/spring-jcl-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/hibernate/hibernate-core/5.3.12.Final/hibernate-core-5.3.12.Final.jar:/home/dzejkob/.m2/repository/org/jboss/logging/jboss-logging/3.3.2.Final/jboss-logging-3.3.2.Final.jar:/home/dzejkob/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar:/home/dzejkob/.m2/repository/org/javassist/javassist/3.23.2-GA/javassist-3.23.2-GA.jar:/home/dzejkob/.m2/repository/net/bytebuddy/byte-buddy/1.9.11/byte-buddy-1.9.11.jar:/home/dzejkob/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/dzejkob/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final/jboss-transaction-api_1.2_spec-1.1.1.Final.jar:/home/dzejkob/.m2/repository/org/jboss/jandex/2.0.5.Final/jandex-2.0.5.Final.jar:/home/dzejkob/.m2/repository/com/fasterxml/classmate/1.3.4/classmate-1.3.4.jar:/home/dzejkob/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar:/home/dzejkob/.m2/repository/org/dom4j/dom4j/2.1.1/dom4j-2.1.1.jar:/home/dzejkob/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.0.4.Final/hibernate-commons-annotations-5.0.4.Final.jar:/home/dzejkob/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar:/home/dzejkob/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1.jar:/home/dzejkob/.m2/repository/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1.jar:/home/dzejkob/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.7/istack-commons-runtime-3.0.7.jar:/home/dzejkob/.m2/repository/org/jvnet/staxex/stax-ex/1.8/stax-ex-1.8.jar:/home/dzejkob/.m2/repository/com/sun/xml/fastinfoset/FastInfoset/1.2.15/FastInfoset-1.2.15.jar:/home/dzejkob/.m2/repository/org/hibernate/hibernate-entitymanager/5.3.12.Final/hibernate-entitymanager-5.3.12.Final.jar:/home/dzejkob/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar:/home/dzejkob/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.2.Final/hibernate-jpa-2.1-api-1.0.2.Final.jar:/home/dzejkob/.m2/repository/org/springframework/spring-context/5.1.9.RELEASE/spring-context-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/springframework/spring-aop/5.1.9.RELEASE/spring-aop-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/springframework/spring-beans/5.1.9.RELEASE/spring-beans-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/springframework/spring-expression/5.1.9.RELEASE/spring-expression-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/dzejkob/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200.jar:"/>
+    <property name="java.vm.vendor" value="Private Build"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="Unknown"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
+    <property name="sun.java.command" value="/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/target/surefire/surefirebooter5053662215845942038.jar /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/target/surefire 2020-01-28T21-54-49_193-jvmRun1 surefire4189713474916785952tmp surefire_015286000938164300144tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/target/test-classes:/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/target/classes:/home/dzejkob/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/dzejkob/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/dzejkob/.m2/repository/org/springframework/spring-core/5.1.9.RELEASE/spring-core-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/springframework/spring-jcl/5.1.9.RELEASE/spring-jcl-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/hibernate/hibernate-core/5.3.12.Final/hibernate-core-5.3.12.Final.jar:/home/dzejkob/.m2/repository/org/jboss/logging/jboss-logging/3.3.2.Final/jboss-logging-3.3.2.Final.jar:/home/dzejkob/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar:/home/dzejkob/.m2/repository/org/javassist/javassist/3.23.2-GA/javassist-3.23.2-GA.jar:/home/dzejkob/.m2/repository/net/bytebuddy/byte-buddy/1.9.11/byte-buddy-1.9.11.jar:/home/dzejkob/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/dzejkob/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final/jboss-transaction-api_1.2_spec-1.1.1.Final.jar:/home/dzejkob/.m2/repository/org/jboss/jandex/2.0.5.Final/jandex-2.0.5.Final.jar:/home/dzejkob/.m2/repository/com/fasterxml/classmate/1.3.4/classmate-1.3.4.jar:/home/dzejkob/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar:/home/dzejkob/.m2/repository/org/dom4j/dom4j/2.1.1/dom4j-2.1.1.jar:/home/dzejkob/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.0.4.Final/hibernate-commons-annotations-5.0.4.Final.jar:/home/dzejkob/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar:/home/dzejkob/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1.jar:/home/dzejkob/.m2/repository/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1.jar:/home/dzejkob/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.7/istack-commons-runtime-3.0.7.jar:/home/dzejkob/.m2/repository/org/jvnet/staxex/stax-ex/1.8/stax-ex-1.8.jar:/home/dzejkob/.m2/repository/com/sun/xml/fastinfoset/FastInfoset/1.2.15/FastInfoset-1.2.15.jar:/home/dzejkob/.m2/repository/org/hibernate/hibernate-entitymanager/5.3.12.Final/hibernate-entitymanager-5.3.12.Final.jar:/home/dzejkob/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar:/home/dzejkob/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.2.Final/hibernate-jpa-2.1-api-1.0.2.Final.jar:/home/dzejkob/.m2/repository/org/springframework/spring-context/5.1.9.RELEASE/spring-context-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/springframework/spring-aop/5.1.9.RELEASE/spring-aop-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/springframework/spring-beans/5.1.9.RELEASE/spring-beans-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/org/springframework/spring-expression/5.1.9.RELEASE/spring-expression-5.1.9.RELEASE.jar:/home/dzejkob/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/dzejkob/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/dzejkob"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2019-10-15"/>
+    <property name="java.home" value="/usr/lib/jvm/java-11-openjdk-amd64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/target/surefire/surefirebooter5053662215845942038.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.5+10-post-Ubuntu-0ubuntu1.118.04"/>
+    <property name="user.name" value="dzejkob"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="4.15.0-54-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/dzejkob/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="Unknown"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="11.0.5"/>
+    <property name="user.dir" value="/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vendor" value="Private Build"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vm.version" value="11.0.5+10-post-Ubuntu-0ubuntu1.118.04"/>
+    <property name="idea.version2019.3" value="true"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="createOneTest" classname="cz.cvut.fit.hrabajak.semestralka.OrderTest" time="2.527">
+    <error message="org.hibernate.exception.SQLGrammarException: could not prepare statement" type="javax.persistence.PersistenceException">javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at cz.cvut.fit.hrabajak.semestralka.OrderTest.createOneTest(OrderTest.java:39)
+Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at cz.cvut.fit.hrabajak.semestralka.OrderTest.createOneTest(OrderTest.java:39)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Syntax error in SQL statement "SELECT ORDER0_.ID AS COL_0_0_ FROM ORDER[*] ORDER0_ WHERE ORDER0_.CODE=?"; expected "identifier"; SQL statement:
+select order0_.id as col_0_0_ from Order order0_ where order0_.code=? [42001-200]
+	at cz.cvut.fit.hrabajak.semestralka.OrderTest.createOneTest(OrderTest.java:39)
+</error>
+    <system-out><![CDATA[Hibernate: create table Order (id bigint generated by default as identity, code varchar(255) not null, custFirstName varchar(255), custSurName varchar(255), deliveryAddress varchar(255), deliveryCity varchar(255), primary key (id))
+Hibernate: create table Product (id bigint generated by default as identity, name varchar(255) not null, price integer, primary key (id))
+Hibernate: alter table Order drop constraint if exists UK_en7fkhoicjnvxhvuhaqkfk8sw
+Hibernate: alter table Order add constraint UK_en7fkhoicjnvxhvuhaqkfk8sw unique (code)
+Hibernate: alter table Product drop constraint if exists UK_gxubutkbk5o2a6aakbe7q9kww
+Hibernate: alter table Product add constraint UK_gxubutkbk5o2a6aakbe7q9kww unique (name)
+Hibernate: select order0_.id as col_0_0_ from Order order0_ where order0_.code=?
+2020-01-28 21:54:52 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper     - Syntax error in SQL statement "SELECT ORDER0_.ID AS COL_0_0_ FROM ORDER[*] ORDER0_ WHERE ORDER0_.CODE=?"; expected "identifier"; SQL statement:
+select order0_.id as col_0_0_ from Order order0_ where order0_.code=? [42001-200]
+]]></system-out>
+  </testcase>
+</testsuite>

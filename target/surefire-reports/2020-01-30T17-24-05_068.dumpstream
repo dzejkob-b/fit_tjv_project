@@ -1,0 +1,15 @@
+# Created at 2020-01-30T17:24:09.929
+WARNING: An illegal reflective access operation has occurred
+
+# Created at 2020-01-30T17:24:09.932
+WARNING: Illegal reflective access by org.springframework.util.ReflectionUtils (file:/home/dzejkob/.m2/repository/org/springframework/spring-core/5.1.3.RELEASE/spring-core-5.1.3.RELEASE.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class)
+
+# Created at 2020-01-30T17:24:09.935
+WARNING: Please consider reporting this to the maintainers of org.springframework.util.ReflectionUtils
+
+# Created at 2020-01-30T17:24:09.938
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+
+# Created at 2020-01-30T17:24:09.941
+WARNING: All illegal access operations will be denied in a future release
+

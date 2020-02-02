@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: cz.cvut.fit.hrabajak.semestralka.OrderTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.559 s <<< FAILURE! - in cz.cvut.fit.hrabajak.semestralka.OrderTest
+createOneTest(cz.cvut.fit.hrabajak.semestralka.OrderTest)  Time elapsed: 2.527 s  <<< ERROR!
+javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at cz.cvut.fit.hrabajak.semestralka.OrderTest.createOneTest(OrderTest.java:39)
+Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at cz.cvut.fit.hrabajak.semestralka.OrderTest.createOneTest(OrderTest.java:39)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Syntax error in SQL statement "SELECT ORDER0_.ID AS COL_0_0_ FROM ORDER[*] ORDER0_ WHERE ORDER0_.CODE=?"; expected "identifier"; SQL statement:
+select order0_.id as col_0_0_ from Order order0_ where order0_.code=? [42001-200]
+	at cz.cvut.fit.hrabajak.semestralka.OrderTest.createOneTest(OrderTest.java:39)
+

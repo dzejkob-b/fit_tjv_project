@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+	<persistence-unit name="persistenceUnit">
+
+		<!-- transaction-type="RESOURCE_LOCAL" - rucni sprava entitymanageru a transakci -->
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<class>cz.cvut.fit.hrabajak.semestralka.orm.Product</class>
+
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test"/>
+			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:~/mydb"/> -->
+
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+			<property name="javax.persistence.jdbc.user" value=""/>
+			<property name="javax.persistence.jdbc.password" value=""/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+			<!-- transakce managovany rucne -->
+			<property name="hibernate.connection.autocommit" value="false"/>
+			<property name="hibernate.show_sql" value="false"/>
+
+			<!-- automaticke ddl v sql - vcetne aktualizace struktury -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+
+		</properties>
+
+	</persistence-unit>
+
+	<persistence-unit name="testPersistenceUnit">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<class>cz.cvut.fit.hrabajak.semestralka.orm.Product</class>
+
+		<properties>
+			<!-- testovaci konfigurace je memory only -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test"/>
+			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:~/mydb"/> -->
+
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+			<property name="javax.persistence.jdbc.user" value=""/>
+			<property name="javax.persistence.jdbc.password" value=""/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+			<!-- transakce managovany rucne -->
+			<property name="hibernate.connection.autocommit" value="false"/>
+			<property name="hibernate.show_sql" value="false"/>
+
+			<!-- automaticke ddl v sql - vcetne aktualizace struktury -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+
+		</properties>
+
+	</persistence-unit>
+
+	<!--
+	sqlite nefunkcni (nutnost nejake konkretni konstelace verzi komponent)
+	<property name="hibernate.connection.url" value="jdbc:sqlite:db.sqlite"/>
+	<property name="hibernate.connection.url" value="jdbc:sqlite::memory:"/>
+	<property name="hibernate.connection.driver_class" value="org.sqlite.JDBC"/>
+	<property name="hibernate.dialect" value="org.hibernate.dialect.SQLiteDialect" />
+	<property name="hibernate.connection.autocommit" value="true"/>
+	<property name="hibernate.show_sql" value="true"/>
+	<property name="hibernate.flushMode" value="ALWAYS" />
+	<property name="hibernate.cache.use_second_level_cache" value="false" />
+	-->
+
+</persistence>

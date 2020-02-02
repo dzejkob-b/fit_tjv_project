@@ -16,6 +16,8 @@ public class EntryForm extends FormBasic {
 
 	@Autowired
 	private ProductEditor pe;
+	@Autowired
+	private OrderEditor oe;
 
 	public EntryForm() {
 	}
@@ -39,7 +41,7 @@ public class EntryForm extends FormBasic {
 			public void actionPerformed(ActionEvent actionEvent) {
 
 				pe.setParentFrame(frame);
-				pe.initialize();
+				pe.Initialize();
 
 			}
 		});
@@ -47,6 +49,9 @@ public class EntryForm extends FormBasic {
 		this.bt_orders.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent actionEvent) {
+
+				oe.setParentFrame(frame);
+				oe.Initialize();
 
 			}
 		});

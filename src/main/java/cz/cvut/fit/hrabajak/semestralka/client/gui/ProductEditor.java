@@ -31,7 +31,7 @@ public class ProductEditor extends FormBasic {
 	public ProductEditor() {
 	}
 
-	public void initialize() {
+	public void Initialize() {
 
 		this.frame = new JFrame();
 		this.frame.setTitle("Product editor");
@@ -111,11 +111,11 @@ public class ProductEditor extends FormBasic {
 
 	private void ActionLoad() {
 		if (entity_id.getText().trim().isEmpty()) {
-			UpdateFields(null);
+			this.UpdateFields(null);
 
 		} else {
 			try {
-				UpdateFields(cp.GetProductById(Long.parseLong(entity_id.getText())));
+				this.UpdateFields(this.cp.GetProductById(Long.parseLong(this.entity_id.getText())));
 
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(null, "Cannot get product: " + ex.getMessage());
@@ -128,15 +128,15 @@ public class ProductEditor extends FormBasic {
 
 			ProductDto p = new ProductDto();
 
-			if (!entity_id.getText().trim().isEmpty()) {
-				p.setEntity_id(Long.parseLong(entity_id.getText()));
+			if (!this.entity_id.getText().trim().isEmpty()) {
+				p.setEntity_id(Long.parseLong(this.entity_id.getText()));
 			}
 
-			p.setName(name.getText());
-			p.setPrice(Long.parseLong(price.getText()));
+			p.setName(this.name.getText());
+			p.setPrice(Long.parseLong(this.price.getText()));
 
-			UpdateFields(cp.UpdateOrCreateProduct(p));
-			UpdateTable(0);
+			this.UpdateFields(cp.UpdateOrCreateProduct(p));
+			this.UpdateTable(0);
 
 		} catch (Exception ex) {
 			JOptionPane.showMessageDialog(null, "Cannot create or update product: " + ex.getMessage());
@@ -145,27 +145,27 @@ public class ProductEditor extends FormBasic {
 
 	private void ActionDelete() {
 		try {
-			cp.DeleteProductById(Long.parseLong(entity_id.getText()));
+			this.cp.DeleteProductById(Long.parseLong(entity_id.getText()));
 
-			UpdateFields(null);
+			this.UpdateFields(null);
 
 		} catch (Exception ex) {
 			JOptionPane.showMessageDialog(null, "Cannot delete product: " + ex.getMessage());
 		}
 
-		UpdateTable(0);
+		this.UpdateTable(0);
 	}
 
 	private void UpdateFields(ProductDto p) {
 		if (p == null) {
-			entity_id.setText("");
-			name.setText("");
-			price.setText("");
+			this.entity_id.setText("");
+			this.name.setText("");
+			this.price.setText("");
 
 		} else {
-			entity_id.setText(Long.toString(p.getEntity_id()));
-			name.setText(p.getName());
-			price.setText(Long.toString(p.getPrice()));
+			this.entity_id.setText(Long.toString(p.getEntity_id()));
+			this.name.setText(p.getName());
+			this.price.setText(Long.toString(p.getPrice()));
 		}
 	}
 
@@ -190,7 +190,7 @@ public class ProductEditor extends FormBasic {
 			if (nPage > 0 && nPage == this.cPage) {
 				// not found - prazdny seznam - krok na predchozi stranku
 
-				UpdateTable(-1);
+				this.UpdateTable(-1);
 
 			} else if (this.cPage == 0) {
 				this.table.setModel(new ProductEditorTable(ls));

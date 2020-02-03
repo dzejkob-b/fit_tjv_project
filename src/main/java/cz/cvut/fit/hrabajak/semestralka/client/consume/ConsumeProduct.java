@@ -16,6 +16,7 @@ public class ConsumeProduct {
 
 	public ProductDto GetProductById(long entity_id) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 		
 		ResponseEntity<ProductDto> response = t.getForEntity(ConsumeProduct.restPrefix + "/getid/" + Long.toString(entity_id), ProductDto.class);
 
@@ -24,6 +25,7 @@ public class ConsumeProduct {
 
 	public ProductDto[] GetProducts(int page) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		ResponseEntity<ProductDto[]> response = t.getForEntity(ConsumeProduct.restPrefix + "/getall/" + Integer.toString(page), ProductDto[].class);
 
@@ -32,6 +34,7 @@ public class ConsumeProduct {
 
 	public ProductDto UpdateOrCreateProduct(ProductDto p) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		HttpHeaders hd = new HttpHeaders();
 		hd.setContentType(MediaType.APPLICATION_JSON);
@@ -45,6 +48,7 @@ public class ConsumeProduct {
 
 	public void DeleteProductById(long entity_id) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		t.delete(ConsumeProduct.restPrefix + "/delete/" + Long.toString(entity_id));
 	}

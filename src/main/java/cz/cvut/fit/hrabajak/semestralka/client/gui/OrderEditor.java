@@ -40,6 +40,7 @@ public class OrderEditor extends FormBasic {
 	private ConsumeOrderRecord co;
 
 	public OrderEditor() {
+		this.InitializeComponents();
 	}
 
 	public OrderRecordDto getCurrentOrderRecord() {
@@ -53,12 +54,22 @@ public class OrderEditor extends FormBasic {
 	}
 
 	public void Initialize() {
+
 		this.frame = new JFrame();
 		this.frame.setTitle("BIK-TJV semestralka - Order editor");
 		this.frame.setSize(600, 700);
 		this.frame.getContentPane().add(this.panel);
 		this.frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.frame.setResizable(false);
+
+		this.UpdateTable("opened");
+
+		this.frame.toFront();
+		this.FrameToParent(this.frame);
+		this.frame.setVisible(true);
+	}
+
+	private void InitializeComponents() {
 
 		this.table.setRowSelectionAllowed(true);
 		this.table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -73,12 +84,6 @@ public class OrderEditor extends FormBasic {
 		this.status.addItem(OrderRecord.Status.PROCESSING);
 		this.status.addItem(OrderRecord.Status.FINISHED);
 		this.status.addItem(OrderRecord.Status.REVERSAL);
-
-		this.UpdateTable("opened");
-
-		this.frame.toFront();
-		this.FrameToParent(this.frame);
-		this.frame.setVisible(true);
 
 		this.bt_opened.addActionListener(new ActionListener() {
 			@Override
@@ -162,7 +167,6 @@ public class OrderEditor extends FormBasic {
 
 			}
 		});
-
 	}
 
 	private void ActionLoad() {
@@ -175,7 +179,7 @@ public class OrderEditor extends FormBasic {
 				this.ActionProductsLoad(null);
 
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "Cannot get order record: " + ex.getMessage());
+				JOptionPane.showMessageDialog(null, "Cannot get order record:\n" + ex.getMessage());
 				this.cOrderRecord = null;
 			}
 
@@ -193,7 +197,7 @@ public class OrderEditor extends FormBasic {
 				this.productTable.setModel(new OrderProductTable(op.getProductsArray()));
 
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "Cannot load order record products: " + ex.getMessage());
+				JOptionPane.showMessageDialog(null, "Cannot load order record products:\n" + ex.getMessage());
 			}
 		}
 	}
@@ -211,7 +215,7 @@ public class OrderEditor extends FormBasic {
 			this.UpdateFields(this.cOrderRecord = this.co.UpdateOrCreateOrderRecord(o));
 
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "Cannot create or update order record: " + ex.getMessage());
+			JOptionPane.showMessageDialog(null, "Cannot create or update order record:\n" + ex.getMessage());
 			this.cOrderRecord = null;
 		}
 
@@ -231,7 +235,7 @@ public class OrderEditor extends FormBasic {
 				this.co.SetOrderRecordStatus(this.code.getText(), (OrderRecord.Status) this.status.getSelectedItem());
 
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "Cannot update order record status: " + ex.getMessage());
+				JOptionPane.showMessageDialog(null, "Cannot update order record status:\n" + ex.getMessage());
 			}
 
 			this.UpdateTable(null);
@@ -245,7 +249,7 @@ public class OrderEditor extends FormBasic {
 			this.UpdateFields(null);
 
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "Cannot delete order record: " + ex.getMessage());
+			JOptionPane.showMessageDialog(null, "Cannot delete order record:\n" + ex.getMessage());
 		}
 
 		this.UpdateTable(null);
@@ -272,7 +276,7 @@ public class OrderEditor extends FormBasic {
 				this.ActionProductsLoad(this.co.RemoveProducts(this.cOrderRecord.getCode(), d));
 
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "Cannot delete products from order record: " + ex.getMessage());
+				JOptionPane.showMessageDialog(null, "Cannot delete products from order record:\n" + ex.getMessage());
 			}
 
 			this.UpdateTable(null);
@@ -298,7 +302,7 @@ public class OrderEditor extends FormBasic {
 				this.ActionProductsLoad(this.co.AddProducts(this.cOrderRecord.getCode(), d));
 
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "Cannot add products to order record: " + ex.getMessage());
+				JOptionPane.showMessageDialog(null, "Cannot add products to order record:\n" + ex.getMessage());
 			}
 
 			this.UpdateTable(null);

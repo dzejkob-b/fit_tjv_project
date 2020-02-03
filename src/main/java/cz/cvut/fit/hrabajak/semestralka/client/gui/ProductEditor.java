@@ -34,6 +34,7 @@ public class ProductEditor extends FormBasic {
 	private OrderEditor oe;
 
 	public ProductEditor() {
+		this.InitializeComponents();
 	}
 
 	public void Destroy() {
@@ -51,15 +52,18 @@ public class ProductEditor extends FormBasic {
 		this.frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.frame.setResizable(false);
 
-		this.table.setRowSelectionAllowed(true);
-		this.table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.table.getTableHeader().setReorderingAllowed(false);
-
 		this.UpdateTable(0);
 
 		this.frame.toFront();
 		this.FrameToParent(this.frame);
 		this.frame.setVisible(true);
+	}
+
+	private void InitializeComponents() {
+
+		this.table.setRowSelectionAllowed(true);
+		this.table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.table.getTableHeader().setReorderingAllowed(false);
 
 		this.bt_load.addActionListener(new ActionListener() {
 			@Override
@@ -125,7 +129,6 @@ public class ProductEditor extends FormBasic {
 
 			}
 		});
-
 	}
 
 	private void ActionLoad() {
@@ -137,7 +140,7 @@ public class ProductEditor extends FormBasic {
 				this.UpdateFields(this.cProduct = this.cp.GetProductById(Long.parseLong(this.entity_id.getText())));
 
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "Cannot get product: " + ex.getMessage());
+				JOptionPane.showMessageDialog(null, "Cannot get product:\n" + ex.getMessage());
 				this.cProduct = null;
 			}
 		}
@@ -159,7 +162,7 @@ public class ProductEditor extends FormBasic {
 			this.UpdateTable(0);
 
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "Cannot create or update product: " + ex.getMessage());
+			JOptionPane.showMessageDialog(null, "Cannot create or update product:\n" + ex.getMessage());
 			this.cProduct = null;
 		}
 	}
@@ -171,7 +174,7 @@ public class ProductEditor extends FormBasic {
 			this.UpdateFields(null);
 
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "Cannot delete product: " + ex.getMessage());
+			JOptionPane.showMessageDialog(null, "Cannot delete product:\n" + ex.getMessage());
 		}
 
 		this.UpdateTable(0);

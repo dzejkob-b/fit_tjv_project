@@ -56,7 +56,7 @@ public class RestProductController extends RestBase {
 			return ResponseEntity.ok().body(ProductDto.toDto.toResource(p));
 
 		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with name `" + name + "` not found!"));
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with name `" + name + "` not found!", HttpStatus.NOT_FOUND));
 		}
 	}
 
@@ -69,7 +69,7 @@ public class RestProductController extends RestBase {
 			return ResponseEntity.ok().body(ProductDto.toDto.toResource(p));
 
 		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with id `" + Long.toString(id) + "` not found!"));
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with id `" + Long.toString(id) + "` not found!", HttpStatus.NOT_FOUND));
 		}
 	}
 
@@ -90,11 +90,11 @@ public class RestProductController extends RestBase {
 						body(ProductDto.toDto.toResources(items));
 				
 			} else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("No more products at page `" + Integer.toString(page) + "`"));
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("No more products at page `" + Integer.toString(page) + "`", HttpStatus.NOT_FOUND));
 			}
 
 		} catch (Exception ex) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage()));
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR));
 		}
 	}
 
@@ -123,7 +123,7 @@ public class RestProductController extends RestBase {
 					body(ProductDto.toDto.toResource(p));
 
 		} catch (Exception ex) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage()));
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR));
 		}
 	}
 
@@ -142,7 +142,7 @@ public class RestProductController extends RestBase {
 					build();
 
 		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with id `" + Long.toString(id) + "` not found!"));
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with id `" + Long.toString(id) + "` not found!", HttpStatus.NOT_FOUND));
 		}
 	}
 

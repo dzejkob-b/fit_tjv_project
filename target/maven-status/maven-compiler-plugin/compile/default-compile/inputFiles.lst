@@ -30,6 +30,7 @@
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/repo/ProductRepository.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/repo/OrderProductRepository.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto.java
+/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeException.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/ClientConfig.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeOrderRecord.java
@@ -37,4 +38,5 @@
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordDto.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/AppConfig.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordSimpleDto.java
+/mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeErrorHandler.java
 /mnt/md0/dokumenty/CVUT.FIT/BI-TJV/semestralka/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/ClientApp.java

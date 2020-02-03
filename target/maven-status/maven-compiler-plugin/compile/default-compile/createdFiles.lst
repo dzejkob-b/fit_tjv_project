@@ -16,6 +16,7 @@ cz/cvut/fit/hrabajak/semestralka/rest/dto/ProductDto.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$4.class
 cz/cvut/fit/hrabajak/semestralka/orm/OrderProduct.class
 cz/cvut/fit/hrabajak/semestralka/client/ClientApp.class
+cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeException.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$1.class
 cz/cvut/fit/hrabajak/semestralka/data/OrderProductFactory.class
 cz/cvut/fit/hrabajak/semestralka/data/OrderRecordFactory.class
@@ -40,6 +41,7 @@ cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$6.class
 cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordDto$2.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderRecordSimpleTable.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$7.class
+cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeErrorHandler.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$6.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$3.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderProductTable.class

@@ -14,6 +14,7 @@ public class ConsumeOrderRecord {
 
 	public OrderRecordDto GetOrderRecordByCode(String code) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		ResponseEntity<OrderRecordDto> response = t.getForEntity(ConsumeOrderRecord.restPrefix + "/get/" + code, OrderRecordDto.class);
 
@@ -22,6 +23,7 @@ public class ConsumeOrderRecord {
 
 	public OrderRecordProductsDto GetOrderRecordProductsByCode(String code) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		ResponseEntity<OrderRecordProductsDto> response = t.getForEntity(ConsumeOrderRecord.restPrefix + "/get/" + code + "/products", OrderRecordProductsDto.class);
 
@@ -30,6 +32,7 @@ public class ConsumeOrderRecord {
 
 	public OrderRecordSimpleDto[] GetOrderRecords(String status) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		ResponseEntity<OrderRecordSimpleDto[]> response = t.getForEntity(ConsumeOrderRecord.restPrefix + "/get/" + status, OrderRecordSimpleDto[].class);
 
@@ -38,12 +41,14 @@ public class ConsumeOrderRecord {
 
 	public void SetOrderRecordStatus(String code, OrderRecord.Status status) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		t.put(ConsumeOrderRecord.restPrefix + "/set/" + code + "/" + status.toString().toLowerCase(), null);
 	}
 
 	public OrderRecordProductsDto AddProducts(String code, OrderAddDto ap) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		HttpHeaders hd = new HttpHeaders();
 		hd.setContentType(MediaType.APPLICATION_JSON);
@@ -57,6 +62,7 @@ public class ConsumeOrderRecord {
 
 	public OrderRecordProductsDto RemoveProducts(String code, OrderAddDto ap) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		HttpHeaders hd = new HttpHeaders();
 		hd.setContentType(MediaType.APPLICATION_JSON);
@@ -70,6 +76,7 @@ public class ConsumeOrderRecord {
 
 	public OrderRecordDto UpdateOrCreateOrderRecord(OrderRecordDto o) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		HttpHeaders hd = new HttpHeaders();
 		hd.setContentType(MediaType.APPLICATION_JSON);
@@ -83,6 +90,7 @@ public class ConsumeOrderRecord {
 
 	public void DeleteOrderRecordByCode(String code) {
 		RestTemplate t = new RestTemplate();
+		t.setErrorHandler(new ConsumeErrorHandler());
 
 		t.delete(ConsumeOrderRecord.restPrefix + "/delete/" + code);
 	}

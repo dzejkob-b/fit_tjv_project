@@ -62,7 +62,7 @@ public class RestOrderRecordController extends RestBase {
 			return ResponseEntity.ok().body(OrderRecordDto.toDto.toResource(o));
 
 		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order with code `" + code + "` not found!"));
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order with code `" + code + "` not found!", HttpStatus.NOT_FOUND));
 		}
 	}
 
@@ -75,7 +75,7 @@ public class RestOrderRecordController extends RestBase {
 			return ResponseEntity.ok().body(OrderRecordProductsDto.toDto.toResource(o));
 
 		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order with code `" + code + "` not found!"));
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order with code `" + code + "` not found!", HttpStatus.NOT_FOUND));
 		}
 	}
 
@@ -85,10 +85,10 @@ public class RestOrderRecordController extends RestBase {
 		OrderRecord o = this.orderRecordFactory.getOrderByCode(code);
 
 		if (o == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order with code `" + code + "` not found!"));
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order with code `" + code + "` not found!", HttpStatus.NOT_FOUND));
 
 		} else if (o.getStatus() != OrderRecord.Status.OPENED) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Order with code `" + code + "` is not at opened state! (`" + o.getStatus().toString() + "`)"));
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Order with code `" + code + "` is not at opened state! (`" + o.getStatus().toString() + "`)", HttpStatus.INTERNAL_SERVER_ERROR));
 
 		} else {
 
@@ -96,7 +96,7 @@ public class RestOrderRecordController extends RestBase {
 				Product p = this.productFactory.getProduct(ap.getProduct_id());
 
 				if (p == null) {
-					return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with entity id `" + Long.toString(ap.getProduct_id()) + "` not found!"));
+					return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with entity id `" + Long.toString(ap.getProduct_id()) + "` not found!", HttpStatus.NOT_FOUND));
 					
 				} else {
 					o.addProduct(p, ap.getQuantity());
@@ -117,10 +117,10 @@ public class RestOrderRecordController extends RestBase {
 		OrderRecord o = this.orderRecordFactory.getOrderByCode(code);
 
 		if (o == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order with code `" + code + "` not found!"));
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order with code `" + code + "` not found!", HttpStatus.NOT_FOUND));
 
 		} else if (o.getStatus() != OrderRecord.Status.OPENED) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Order with code `" + code + "` is not at opened state! (`" + o.getStatus().toString() + "`)"));
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Order with code `" + code + "` is not at opened state! (`" + o.getStatus().toString() + "`)", HttpStatus.INTERNAL_SERVER_ERROR));
 
 		} else {
 			boolean anyRemoved = false;
@@ -129,10 +129,10 @@ public class RestOrderRecordController extends RestBase {
 				Product p = this.productFactory.getProduct(ap.getProduct_id());
 
 				if (p == null) {
-					return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with entity id `" + Long.toString(ap.getProduct_id()) + "` not found!"));
+					return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Product with entity id `" + Long.toString(ap.getProduct_id()) + "` not found!", HttpStatus.NOT_FOUND));
 
 				} else if (!o.removeProduct(p, ap.getQuantity())) {
-					return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Product with entity id `" + Long.toString(ap.getProduct_id()) + "` not contained in order `" + o.getCode() + "`!"));
+					return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Product with entity id `" + Long.toString(ap.getProduct_id()) + "` not contained in order `" + o.getCode() + "`!", HttpStatus.INTERNAL_SERVER_ERROR));
 
 				} else {
 					anyRemoved = true;
@@ -140,7 +140,7 @@ public class RestOrderRecordController extends RestBase {
 			}
 
 			if (!anyRemoved) {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Nothing was removed from order with code `" + o.getCode() + "`!"));
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Nothing was removed from order with code `" + o.getCode() + "`!", HttpStatus.NOT_FOUND));
 			}
 
 			this.orderRecordFactory.saveOrder(o);
@@ -183,11 +183,11 @@ public class RestOrderRecordController extends RestBase {
 						body(OrderRecordDto.toSimpleDto.toResources(items));
 
 			} else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("No order records with state `" + status.toString() + "` found!"));
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("No order records with state `" + status.toString() + "` found!", HttpStatus.NOT_FOUND));
 			}
 
 		} catch (Exception ex) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage()));
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR));
 		}
 	}
 
@@ -218,12 +218,12 @@ public class RestOrderRecordController extends RestBase {
 			if (o == null) {
 				return ResponseEntity.
 						status(HttpStatus.NOT_FOUND).
-						body(this.getErrorJson("No order records with code `" + code.toString() + "` found!"));
+						body(this.getErrorJson("No order records with code `" + code.toString() + "` found!", HttpStatus.NOT_FOUND));
 
 			} else if (!o.mayChangeStatus(status)) {
 				return ResponseEntity.
 						status(HttpStatus.INTERNAL_SERVER_ERROR).
-						body(this.getErrorJson("Cannot change status from `" + o.getStatus().toString() + "` to `" + status.toString() + "` of order record with code `" + o.getCode() + "`!"));
+						body(this.getErrorJson("Cannot change status from `" + o.getStatus().toString() + "` to `" + status.toString() + "` of order record with code `" + o.getCode() + "`!", HttpStatus.INTERNAL_SERVER_ERROR));
 
 			} else {
 				o.setStatus(status);
@@ -236,7 +236,7 @@ public class RestOrderRecordController extends RestBase {
 			}
 
 		} catch (Exception ex) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage()));
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR));
 		}
 	}
 
@@ -249,7 +249,7 @@ public class RestOrderRecordController extends RestBase {
 				o = this.orderRecordFactory.getOrderByCode(dt.getCode());
 
 				if (o != null && o.getStatus() != OrderRecord.Status.OPENED) {
-					return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Cannot update order with status `" + o.getStatus().toString() + "`!"));
+					return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Cannot update order with status `" + o.getStatus().toString() + "`!", HttpStatus.INTERNAL_SERVER_ERROR));
 				}
 			}
 
@@ -274,7 +274,7 @@ public class RestOrderRecordController extends RestBase {
 					body(OrderRecordDto.toDto.toResource(o));
 
 		} catch (Exception ex) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage()));
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR));
 		}
 	}
 
@@ -284,10 +284,10 @@ public class RestOrderRecordController extends RestBase {
 		OrderRecord o = this.orderRecordFactory.getOrderByCode(code);
 
 		if (o == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order record with code `" + code + "` not found!"));
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.getErrorJson("Order record with code `" + code + "` not found!", HttpStatus.NOT_FOUND));
 
 		} else if (o.getStatus() != OrderRecord.Status.REVERSAL) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Delete order record with state `" + o.getCode() + "` is not possible!"));
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(this.getErrorJson("Delete order record with state `" + o.getStatus() + "` is not possible!", HttpStatus.INTERNAL_SERVER_ERROR));
 
 		} else {
 			this.orderRecordFactory.deleteOrderRecord(o);

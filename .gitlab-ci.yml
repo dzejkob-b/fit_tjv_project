@@ -4,11 +4,7 @@ stages:
 
 build:
     stage: build
-    script:
-        - mvn build
 
 test:
     stage: test
-    script:
-        - mvn test
 

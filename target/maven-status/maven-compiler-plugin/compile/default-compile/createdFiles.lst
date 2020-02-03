@@ -46,6 +46,7 @@ cz/cvut/fit/hrabajak/semestralka/client/gui/OrderProductTable.class
 cz/cvut/fit/hrabajak/semestralka/rest/RestRootController.class
 cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor$9.class
 cz/cvut/fit/hrabajak/semestralka/data/ProductFactory.class
+cz/cvut/fit/hrabajak/semestralka/client/gui/EntryForm$3.class
 cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordProductsDto$1.class
 cz/cvut/fit/hrabajak/semestralka/orm/OrderRecord$1.class
 cz/cvut/fit/hrabajak/semestralka/rest/dto/OrderRecordProductsDto.class

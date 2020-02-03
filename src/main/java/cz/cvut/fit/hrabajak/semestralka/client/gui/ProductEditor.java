@@ -1,6 +1,5 @@
 package cz.cvut.fit.hrabajak.semestralka.client.gui;
 
-import cz.cvut.fit.hrabajak.semestralka.client.consume.ConsumeOrderRecord;
 import cz.cvut.fit.hrabajak.semestralka.client.consume.ConsumeProduct;
 import cz.cvut.fit.hrabajak.semestralka.rest.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +36,16 @@ public class ProductEditor extends FormBasic {
 	public ProductEditor() {
 	}
 
+	public void Destroy() {
+		if (this.frame != null) {
+			this.frame.dispose();
+		}
+	}
+
 	public void Initialize() {
 
 		this.frame = new JFrame();
-		this.frame.setTitle("Product editor");
+		this.frame.setTitle("BIK-TJV semestralka - Product editor");
 		this.frame.setSize(600, 400);
 		this.frame.getContentPane().add(this.panel);
 		this.frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -262,9 +267,9 @@ public class ProductEditor extends FormBasic {
 		name = new JTextField();
 		name.setColumns(20);
 		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
+		gbc.gridx = 3;
 		gbc.gridy = 2;
-		gbc.weightx = 10.0;
+		gbc.weightx = 2.0;
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		panel.add(name, gbc);
@@ -285,23 +290,23 @@ public class ProductEditor extends FormBasic {
 		entity_id = new JTextField();
 		entity_id.setColumns(10);
 		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
+		gbc.gridx = 3;
 		gbc.gridy = 1;
-		gbc.weightx = 10.0;
+		gbc.weightx = 2.0;
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		panel.add(entity_id, gbc);
 		price = new JTextField();
 		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
+		gbc.gridx = 3;
 		gbc.gridy = 3;
-		gbc.weightx = 10.0;
+		gbc.weightx = 2.0;
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		panel.add(price, gbc);
 		final JPanel spacer1 = new JPanel();
 		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
+		gbc.gridx = 3;
 		gbc.gridy = 4;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		panel.add(spacer1, gbc);
@@ -309,7 +314,7 @@ public class ProductEditor extends FormBasic {
 		gbc = new GridBagConstraints();
 		gbc.gridx = 1;
 		gbc.gridy = 5;
-		gbc.gridwidth = 4;
+		gbc.gridwidth = 5;
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -319,7 +324,7 @@ public class ProductEditor extends FormBasic {
 		scrollPane1.setViewportView(table);
 		final JPanel spacer2 = new JPanel();
 		gbc = new GridBagConstraints();
-		gbc.gridx = 5;
+		gbc.gridx = 6;
 		gbc.gridy = 1;
 		gbc.gridheight = 5;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -335,92 +340,93 @@ public class ProductEditor extends FormBasic {
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 7;
-		gbc.gridwidth = 6;
+		gbc.gridwidth = 7;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		panel.add(spacer4, gbc);
 		final JPanel spacer5 = new JPanel();
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		gbc.gridwidth = 6;
+		gbc.gridwidth = 7;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		panel.add(spacer5, gbc);
 		final JPanel panel1 = new JPanel();
-		panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 1));
 		gbc = new GridBagConstraints();
-		gbc.gridx = 4;
+		gbc.gridx = 5;
 		gbc.gridy = 6;
 		gbc.fill = GridBagConstraints.BOTH;
 		panel.add(panel1, gbc);
 		bt_prev = new JButton();
+		bt_prev.setPreferredSize(new Dimension(100, 30));
 		bt_prev.setText("<= prev");
 		panel1.add(bt_prev);
 		bt_next = new JButton();
+		bt_next.setPreferredSize(new Dimension(100, 30));
 		bt_next.setText("next =>");
 		panel1.add(bt_next);
 		final JPanel panel2 = new JPanel();
-		panel2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel2.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 1));
 		gbc = new GridBagConstraints();
-		gbc.gridx = 4;
+		gbc.gridx = 5;
 		gbc.gridy = 1;
+		gbc.weightx = 1.0;
 		gbc.fill = GridBagConstraints.BOTH;
 		panel.add(panel2, gbc);
 		bt_load = new JButton();
 		bt_load.setHorizontalAlignment(0);
+		bt_load.setPreferredSize(new Dimension(110, 30));
 		bt_load.setText("Load");
 		panel2.add(bt_load);
 		bt_clean = new JButton();
+		bt_clean.setPreferredSize(new Dimension(110, 30));
 		bt_clean.setText("Clean form");
 		panel2.add(bt_clean);
 		final JPanel spacer6 = new JPanel();
 		gbc = new GridBagConstraints();
-		gbc.gridx = 3;
+		gbc.gridx = 4;
 		gbc.gridy = 2;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		panel.add(spacer6, gbc);
 		final JPanel panel3 = new JPanel();
-		panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 1));
 		gbc = new GridBagConstraints();
-		gbc.gridx = 4;
+		gbc.gridx = 5;
 		gbc.gridy = 2;
 		gbc.fill = GridBagConstraints.BOTH;
 		panel.add(panel3, gbc);
 		bt_update = new JButton();
+		bt_update.setPreferredSize(new Dimension(110, 30));
 		bt_update.setText("Create, update");
 		panel3.add(bt_update);
 		bt_delete = new JButton();
+		bt_delete.setPreferredSize(new Dimension(110, 30));
 		bt_delete.setText("Delete");
 		panel3.add(bt_delete);
 		final JPanel panel4 = new JPanel();
-		panel4.setLayout(new GridBagLayout());
+		panel4.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 1));
 		gbc = new GridBagConstraints();
-		gbc.gridx = 4;
+		gbc.gridx = 5;
 		gbc.gridy = 3;
-		gbc.weightx = 1.0;
 		gbc.fill = GridBagConstraints.BOTH;
 		panel.add(panel4, gbc);
 		final JLabel label4 = new JLabel();
 		label4.setText("Quantity: ");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.anchor = GridBagConstraints.WEST;
-		panel4.add(label4, gbc);
+		panel4.add(label4);
 		quantity = new JTextField();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 0;
-		gbc.weightx = 1.0;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		panel4.add(quantity, gbc);
+		quantity.setPreferredSize(new Dimension(60, 30));
+		panel4.add(quantity);
 		bt_order = new JButton();
+		bt_order.setPreferredSize(new Dimension(80, 30));
 		bt_order.setText("To order");
+		panel4.add(bt_order);
+		final JPanel spacer7 = new JPanel();
 		gbc = new GridBagConstraints();
 		gbc.gridx = 2;
-		gbc.gridy = 0;
+		gbc.gridy = 1;
+		gbc.gridheight = 3;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		panel4.add(bt_order, gbc);
+		panel.add(spacer7, gbc);
 	}
 
 	/**

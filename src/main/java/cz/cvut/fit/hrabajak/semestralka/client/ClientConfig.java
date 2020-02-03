@@ -8,8 +8,9 @@ import cz.cvut.fit.hrabajak.semestralka.client.gui.ProductEditor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
-
+/**
+ * beany klientske swingove aplikace
+ */
 @Configuration
 public class ClientConfig {
 

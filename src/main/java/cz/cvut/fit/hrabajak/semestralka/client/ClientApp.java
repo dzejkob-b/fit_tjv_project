@@ -1,13 +1,15 @@
 package cz.cvut.fit.hrabajak.semestralka.client;
 
 import cz.cvut.fit.hrabajak.semestralka.client.gui.EntryForm;
-import cz.cvut.fit.hrabajak.semestralka.client.gui.ProductEditor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.swing.*;
 
+/**
+ * entrypoint klientske swingove aplikace
+ */
 public class ClientApp {
 
 	private static ApplicationContext ctx;

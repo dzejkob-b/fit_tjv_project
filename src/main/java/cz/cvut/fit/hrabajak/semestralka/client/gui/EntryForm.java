@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class EntryForm extends FormBasic {
 
@@ -25,16 +27,31 @@ public class EntryForm extends FormBasic {
 	public void initialize() {
 
 		this.frame = new JFrame();
-		this.frame.setTitle("BI-TJV semestralka");
+		this.frame.setTitle("BIK-TJV semestralka");
 		this.frame.setSize(400, 200);
 		this.frame.getContentPane().add(this.panel);
-		this.frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.frame.setResizable(false);
 
 		this.frame.toFront();
 		this.FrameToCenter(this.frame);
 
 		this.frame.setVisible(true);
+
+		this.frame.addWindowListener(new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent windowEvent) {
+				if (JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit program?", "BIK-TJV semestralka", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
+
+					pe.Destroy();
+					oe.Destroy();
+
+					frame.dispose();
+
+				}
+			}
+		});
 
 		this.bt_products.addActionListener(new ActionListener() {
 			@Override
@@ -127,4 +144,5 @@ public class EntryForm extends FormBasic {
 	 * @noinspection ALL
 	 */
 	public JComponent $$$getRootComponent$$$() { return panel; }
+
 }

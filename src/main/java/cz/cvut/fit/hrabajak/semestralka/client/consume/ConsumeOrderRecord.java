@@ -5,6 +5,9 @@ import cz.cvut.fit.hrabajak.semestralka.rest.dto.*;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * zpracovani api objednavek
+ */
 public class ConsumeOrderRecord {
 
 	private static String restPrefix = "http://localhost:8080/orderrecord";

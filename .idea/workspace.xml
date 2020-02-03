@@ -3,23 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3241043a-d1a9-44fc-88c8-304f14a4704d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeOrderRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeOrderRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/OrderEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestOrderRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestOrderRecordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fit/hrabajak/semestralka/rest/RestProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/consume/ConsumeProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/cvut/fit/hrabajak/semestralka/client/gui/ProductEditor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +238,7 @@
       <workItem from="1580578661523" duration="26704000" />
       <workItem from="1580651037725" duration="9697000" />
       <workItem from="1580661721588" duration="29702000" />
-      <workItem from="1580736188754" duration="4586000" />
+      <workItem from="1580736188754" duration="6238000" />
     </task>
     <servers />
   </component>
@@ -330,22 +314,22 @@
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
     <state x="2961" y="553" width="424" height="479" key="FileChooserDialogImpl/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580399053391" />
-    <state width="2216" height="273" key="GridCell.Tab.0.bottom" timestamp="1580740792117">
+    <state width="2216" height="273" key="GridCell.Tab.0.bottom" timestamp="1580744408868">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
-    <state width="2216" height="273" key="GridCell.Tab.0.bottom/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580740792117" />
-    <state width="2216" height="273" key="GridCell.Tab.0.center" timestamp="1580740792117">
+    <state width="2216" height="273" key="GridCell.Tab.0.bottom/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580744408868" />
+    <state width="2216" height="273" key="GridCell.Tab.0.center" timestamp="1580744408868">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
-    <state width="2216" height="273" key="GridCell.Tab.0.center/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580740792117" />
-    <state width="2216" height="273" key="GridCell.Tab.0.left" timestamp="1580740792117">
+    <state width="2216" height="273" key="GridCell.Tab.0.center/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580744408868" />
+    <state width="2216" height="273" key="GridCell.Tab.0.left" timestamp="1580744408868">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
-    <state width="2216" height="273" key="GridCell.Tab.0.left/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580740792117" />
-    <state width="2216" height="273" key="GridCell.Tab.0.right" timestamp="1580740792117">
+    <state width="2216" height="273" key="GridCell.Tab.0.left/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580744408868" />
+    <state width="2216" height="273" key="GridCell.Tab.0.right" timestamp="1580744408868">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>
-    <state width="2216" height="273" key="GridCell.Tab.0.right/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580740792117" />
+    <state width="2216" height="273" key="GridCell.Tab.0.right/1920.126.2560.1440/4480.0.1080.1920/0.380.1920.1080@1920.126.2560.1440" timestamp="1580744408868" />
     <state x="2863" y="543" width="664" height="559" key="GuiDesigner.FormSource.Dialog" timestamp="1580658497904">
       <screen x="1920" y="126" width="2560" height="1440" />
     </state>

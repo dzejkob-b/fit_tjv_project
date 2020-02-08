@@ -18,7 +18,7 @@
 
     <spring.version>5.1.3.RELEASE</spring.version>
     <springboot.version>2.0.2.RELEASE</springboot.version>
-    <springdata.version>2.0.2.RELEASE</springdata.version>
+    <springdata.version>2.2.4.RELEASE</springdata.version>
     <springrest.version>2.0.4.RELEASE</springrest.version>
   </properties>
 
